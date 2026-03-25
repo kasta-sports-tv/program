@@ -6,9 +6,8 @@ export default function handler(req, res) {
     "https://kasta-sports-tv.github.io/program/index2.ts"
   ];
 
-  // 🔥 стабільний sequence (НЕ Date.now)
-  const now = Math.floor(Date.now() / 10000);
-  const seq = now % 1000;
+  // 🔥 Для VOD використовуємо фіксований sequence
+  const seq = 0;
 
   let playlist = `#EXTM3U
 #EXT-X-VERSION:3
@@ -16,14 +15,18 @@ export default function handler(req, res) {
 #EXT-X-MEDIA-SEQUENCE:${seq}
 `;
 
-  // 🔥 стабільний loop (без now у виборі сегментів)
-  for (let i = 0; i < 6; i++) {
-    const seg = segments[i % segments.length];
+  // 🔥 Робимо нормальний VOD loop (без "live-поведінки")
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
     playlist += `#EXTINF:10.0,\n${seg}\n`;
   }
 
+  // 🔥 КЛЮЧОВЕ — явно кажемо що це VOD
+  playlist += `#EXT-X-ENDLIST\n`;
+
   res.setHeader("Content-Type", "application/vnd.apple.mpegurl");
 
+  // 🔥 жорстко вимикаємо кеш
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
   res.setHeader("Pragma", "no-cache");
   res.setHeader("Expires", "0");
