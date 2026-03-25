@@ -5,8 +5,8 @@ export default function handler(req, res) {
     "https://kasta-sports-tv.github.io/program/index2.ts"
   ];
 
-  // 🔥 стабільний цикл sequence (імітація live)
-  const base = Math.floor(Date.now() / 30000); 
+  // стабільний live sequence
+  const base = Math.floor(Date.now() / 30000);
   const mediaSequence = base % 10000;
 
   let playlist = `#EXTM3U
@@ -15,7 +15,6 @@ export default function handler(req, res) {
 #EXT-X-MEDIA-SEQUENCE:${mediaSequence}
 `;
 
-  // 🔥 генеруємо "live" список сегментів
   const count = 6;
 
   for (let i = 0; i < count; i++) {
@@ -23,11 +22,8 @@ export default function handler(req, res) {
     playlist += `#EXTINF:10.0,\n${seg}\n`;
   }
 
-  // ❗ ЖОДНОГО ENDLIST (це live)
-
+  // 📌 ВАЖЛИВО: це m3u8 → без кешу
   res.setHeader("Content-Type", "application/vnd.apple.mpegurl");
-
-  // ❗ критично для live
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
   res.setHeader("Pragma", "no-cache");
   res.setHeader("Expires", "0");
