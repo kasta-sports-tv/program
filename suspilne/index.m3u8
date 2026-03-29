@@ -1,6 +1,5 @@
 #EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=800000
-https://ext.cdn.nashnet.tv/228.0.0.41/index.m3u8
 #EXTVLCOPT:http-referrer=https://ext.cdn.nashnet.tv/
 #EXTVLCOPT:http-origin=https://ext.cdn.nashnet.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36
