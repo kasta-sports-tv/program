@@ -1,5 +1,3 @@
 #EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=800000
-#EXTVLCOPT:http-referrer=https://ext.cdn.nashnet.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0
-https://ext.cdn.nashnet.tv/228.0.0.41/index.m3u8
+https://hls.sweet.tv/stream/684auisd7g8nnqreukbieq5esthjnb3xxpv5mnnjktrwx4yt9baypvvfd2pzqwt9vfuxrv6wu2ts7xkh726fie73v939rsdwpzux5wgkbfd7mvqccr5dgd7jghkax8rkrht68ir54jqrjipdg6mtfk5depfv8kpckn6vxhdpx4eaw.m3u8
