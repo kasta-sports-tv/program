@@ -1,3 +1,4 @@
 #EXTM3U
 #EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=4550000,BANDWIDTH=5690000,RESOLUTION=1920x1080,FRAME-RATE=25.000,CODECS="avc1.4d4028,mp4a.40.2",CLOSED-CAPTIONS=NONE
-http://ext.cdn.nashnet.tv/228.0.4.26/index.m3u8|User-Agent=Mozilla/5.0 (SMART-TV; LINUX; Tizen 4.0)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (SMART-TV; LINUX; Tizen 4.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 TV Safari/537.36
+https://ext.cdn.nashnet.tv/228.0.4.26/index.m3u8
